@@ -28,3 +28,21 @@ void scc(int u){
      }
 
 }
+
+void bridges(int u, int p){
+     dfsn[u] = lowLink[u] = num ++ ;
+
+     for(auto v : G[u]){
+           if(dfsn[v] == -1){
+                bridges(v, u);
+                lowLink[u] = min(lowLink[v] , lowLink[u]);
+           }
+           else if(v != p)
+                lowLink[u] = min(lowLink[u] , dfsn[v]);
+     }
+
+     if(lowLink[u] == dfsn[u] && p != -1){
+         cout << "Bridge " << p << " " << u << endl ;      
+     }
+
+}
