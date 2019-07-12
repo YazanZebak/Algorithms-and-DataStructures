@@ -1,4 +1,13 @@
 
+struct edge{
+	int from , to , w;
+	edge(){}
+	edge(int from, int to, int w) : from(from), to(to), w(w) {}
+	bool operator < (const edge &e){
+		 return w > e.w ;
+	}
+};
+
 pair < int , vector < edge > > prim(int n) { 
 
     int mst = 0 ;

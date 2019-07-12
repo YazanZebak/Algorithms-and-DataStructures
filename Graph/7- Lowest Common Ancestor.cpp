@@ -3,6 +3,7 @@
 
 void dfs(int u , int p , int d) {
     P[u][0] = p ; // the first ancestor of node u
+    // if(p != -1) dp[u][0] = w ; 
     L[u] = d;
     for(auto v : G[u]) {
         if(v == p)
@@ -54,7 +55,7 @@ ll calc(int u , int v) {
 }
 
 // max , min , xor , gcd , lcm , ......
-// dp[i][j] = (dp[i][j - 1] , dp[P[i][j - 1]][j - 1]) , dp[i][0] = weight( u , p[u][0] )
+// dp[i][j] = max(dp[i][j - 1] , dp[P[i][j - 1]][j - 1]);
 int query(int u , int v){
 
     int log ;
@@ -64,7 +65,7 @@ int query(int u , int v){
     int ret = 0 ;
     for(int i = log ; i >= 0 ; i--)
          if(L[u] - (1 << i) >= L[v])
-            ret = (ret , dp[u][i]) , u = P[u][i] ;
+            ret = max(ret , dp[u][i]) , u = P[u][i] ;
 
     return ret ;
 }
