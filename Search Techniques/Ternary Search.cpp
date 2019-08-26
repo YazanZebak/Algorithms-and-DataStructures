@@ -5,7 +5,7 @@ double ternaryReal(){
 	   while(right - left > eps){
 	   	     double g = left + (right - left) / 3 , h = left + 2 * (right - left) / 3 ; 
 
-	   	     if(f(g) < f(h)) // use > if f increase the decrease 
+	   	     if(f(g) < f(h)) // use > if f increase then decrease 
 	   	     	right = h;
 	   	     else
 	   	     	left = g;
@@ -20,7 +20,7 @@ int ternaryInt(){
 	while(right - left > 3){
 		  int g = left + (right - left) / 3, h = left + 2 * (right - left) / 3;
 
-		  if(f(g) < f(h)) // use > if f increase the decrease 
+		  if(f(g) < f(h)) // use > if f increase then decrease 
 		  	 right = h; 
 		  else 
 		  	 left = g; 
