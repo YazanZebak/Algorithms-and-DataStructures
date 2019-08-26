@@ -59,3 +59,20 @@ double logBase(double base , double x) {
 long double fib(ll n){
 	 return ( pow(phi , n) - pow(1 - phi , n) ) / sqrt(5.0);
 }
+
+//  ( a * b ) % m 
+
+typedef long long unsigned int llu;
+typedef long long int ll ;
+typedef long double ld;
+ 
+llu mul_mod(llu a, llu b, llu m){
+   llu y = (llu)((ld)a*(ld)b/m+(ld)1/2);
+   y = y * m;
+   llu x = a * b;
+   llu r = x - y;
+   if ( (ll)r < 0 ){
+      r = r + m; y = y - 1;
+   }
+   return r;
+}

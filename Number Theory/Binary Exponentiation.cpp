@@ -14,11 +14,19 @@ ll bigMod(ll x , ll y , ll m){
 // Iterative
 ll bigMod(ll x , ll y , ll m){
 	ll res = 1 ; 
-	while(y){
-		 if(y & 1) 
-		 	  res = (res * x) % m ; 
-		 y /= 2 ; 
-		 x = (x * x) % m ; 
+	for( ; y; y >>= 1){
+		if(y & 1) res = (res * a) % m;
+		x = (x * x) % m;
 	}
 	return res ; 
+}
+
+ll mult64(ll a, ll b, ll m) {
+  a %= m, b %= m;
+  ll ret = 0;
+  for (; b; b >>= 1) {
+    if (b & 1) ret = (ret + a) % m;
+    a = (a + a) % m;
+  }
+  return ret;
 }
