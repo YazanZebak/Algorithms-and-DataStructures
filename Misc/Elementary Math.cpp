@@ -56,10 +56,6 @@ double logBase(double base , double x) {
     return (log(x) / log(base));
 }
 
-long double fib(ll n){
-	 return ( pow(phi , n) - pow(1 - phi , n) ) / sqrt(5.0);
-}
-
 //  ( a * b ) % m 
 
 typedef long long unsigned int llu;
