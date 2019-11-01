@@ -4,7 +4,7 @@ void NGE(){
     stack < pair < int , int > > s;
     for(int i = n - 1 ; i >= 0 ; i--){
         nextBig[i] = -1;
-        while(!s.empty() && s.top().first < a[i]) s.pop();
+        while(!s.empty() && s.top().first < arr[i]) s.pop();
         if (!s.empty())
             nextBig[i] = s.top().second;
         s.push(make_pair(arr[i] , i));
